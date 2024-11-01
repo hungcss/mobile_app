@@ -24,38 +24,51 @@ class UserProfileScreen extends StatelessWidget {
       ),
       body: user == null
           ? Center(child: CircularProgressIndicator())
-          : Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipOval(
-                    child: Image.network(
-                      user.image,
-                      height: 100,
-                      width: 100,
-                      fit: BoxFit.cover,
+          : Center(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min, // Center vertically
+                  children: [
+                    ClipOval(
+                      child: Image.network(
+                        user.image,
+                        height: 100,
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 16),
-                  Text("First Name: ${user.firstName}",
-                      style: TextStyle(fontSize: 18)),
-                  Text("Last Name: ${user.lastName}",
-                      style: TextStyle(fontSize: 18)),
-                  Text("Maiden Name: ${user.maidenName}",
-                      style: TextStyle(fontSize: 18)),
-                  Text("Age: ${user.age}", style: TextStyle(fontSize: 18)),
-                  Text("Phone: ${user.phone}", style: TextStyle(fontSize: 18)),
-                  Spacer(),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Navigate back to the login screen
-                      Navigator.pushReplacementNamed(context,
-                          '/'); // Ensure your login route is defined as '/'
-                    },
-                    child: Text("Checkout"),
-                  ),
-                ],
+                    SizedBox(height: 16),
+                    Text(
+                      "First Name: ${user.firstName}",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    Text(
+                      "Last Name: ${user.lastName}",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    Text(
+                      "Maiden Name: ${user.maidenName}",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    Text(
+                      "Age: ${user.age}",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    Text(
+                      "Phone: ${user.phone}",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    SizedBox(height: 24),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Navigate back to the login screen
+                        Navigator.pushReplacementNamed(context, '/');
+                      },
+                      child: Text("Checkout"),
+                    ),
+                  ],
+                ),
               ),
             ),
     );
